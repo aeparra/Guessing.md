@@ -1,0 +1,10 @@
+flowchart TD
+    Start([Start]) --> RandomNumber[Generate random number between 1 and 100]
+    RandomNumber --> InputGuess[Get user guess]
+    InputGuess --> IsValid[Check if input is valid]
+    IsValid -- No --> InvalidInput[Prompt user to enter a valid number] --> InputGuess
+    IsValid -- Yes --> CompareGuess[Is guess correct?]
+    CompareGuess -- TooLow --> FeedbackLow[Feedback: "Too Low! Try Again"] --> InputGuess
+    CompareGuess -- TooHigh --> FeedbackHigh[Feedback: "Too High! Try Again"] --> InputGuess
+    CompareGuess -- Correct --> Win[Feedback: "Correct! You win!"]
+    Win --> End([End])
